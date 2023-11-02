@@ -12,10 +12,10 @@ body {
     align-items: center;
 }
 
-#display {
+.display {
     text-align: right;
     overflow-wrap: break-word;
-    min-height: 1.6em;
+    min-height: 2em;
     padding: .2em;
     font-size: 2em;
     font-weight: 500;
