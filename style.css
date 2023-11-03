@@ -13,7 +13,8 @@ body {
 }
 
 .display {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
     overflow-wrap: break-word;
     min-height: 2em;
     padding: .2em;
@@ -23,6 +24,11 @@ body {
     background-color: white;
     border-radius: 0.2em;
 
+}
+
+#expression {
+    color: lightgray;
+    font-size: 0.6em;
 }
 
 .container {
