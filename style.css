@@ -132,44 +132,44 @@ h3 {
     }
 
     #zero {
-        order: 10
+        order: 1
     }
 
 
     #um {
-        order: 9;
-    }
-
-    #dois {
-        order: 8;
-    }
-
-    #tres {
-        order: 7;
-    }
-
-    #quatro {
-        order: 6;
-    }
-
-    #cinco {
-        order: 5;
-    }
-
-    #seis {
-        order: 4;
-    }
-
-    #sete {
-        order: 3;
-    }
-
-    #oito {
         order: 2;
     }
 
+    #dois {
+        order: 3;
+    }
+
+    #tres {
+        order: 4;
+    }
+
+    #quatro {
+        order: 5;
+    }
+
+    #cinco {
+        order: 6;
+    }
+
+    #seis {
+        order: 7;
+    }
+
+    #sete {
+        order: 8;
+    }
+
+    #oito {
+        order: 9;
+    }
+
     #nove {
-        order: 1;
+        order: 10;
     }
 
     #expression {
