@@ -35,16 +35,35 @@ class Calculadora {
 
 
     processOperation(operation) {
+        //check se texto no display esta vazio
+        if (displayText.innerText === "") {
+            // se sim, e o texto da expressão não estiver vazio, irá executar a troca de sinal caso seja solicitado
+            if (expressionText.innerText !== "") {
+                this.changeOperation(operation)
+            }
+            return
+        }
+
         let operationValue;
-        const previusNumber = +this.expressionText.innerText.split(" ")[0];
+        const previusNumber = +this.expressionText.innerText.split(" ")[0]; //separando a expressão pelo espaço e pegando o índice 0, que é apenas o numero.
         const currentNumber = +this.displayText.innerText;
 
         switch (operation) {
             case "+":
                 operationValue = previusNumber + currentNumber
                 this.updateScreen(operationValue, operation, currentNumber, previusNumber)
-                console.log("Previus: " + previusNumber)
-                console.log("Current: " + currentNumber)
+                break;
+            case "-":
+                operationValue = previusNumber - currentNumber;
+                this.updateScreen(operationValue, operation, currentNumber, previusNumber);
+                break;
+            case "*":
+                operationValue = previusNumber * currentNumber;
+                this.updateScreen(operationValue, operation, currentNumber, previusNumber);
+                break;
+            case "/":
+                operationValue = previusNumber / currentNumber;
+                this.updateScreen(operationValue, operation, currentNumber, previusNumber);
                 break;
             default:
                 return;
@@ -69,6 +88,15 @@ class Calculadora {
             this.expressionText.innerText = `${operationValue} ${operation}`
             this.displayText.innerText = ""
         }
+    }
+
+    changeOperation(operation) {
+        const mathOperations = ["+", "-", "*", "/"]
+        //  check se o valor solicitado é algum desses símbolos matematicos
+        if(!mathOperations.includes(operation)){
+            return
+        }
+        this.expressionText.innerText = this.expressionText.innerText.slice(0,-1) + operation; // se sim, irá remover o ultimo caractere da string (no caso a operação) e adicionar a nova operação solicitada.
     }
 
 }
