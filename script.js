@@ -35,8 +35,8 @@ class Calculadora {
 
 
     processOperation(operation) {
-        //check se texto no display esta vazio
-        if (displayText.innerText === "") {
+        //check se texto no display esta vazio e se a operação não é a "C"
+        if (displayText.innerText === "" && operation !== "C") {
             // se sim, e o texto da expressão não estiver vazio, irá executar a troca de sinal caso seja solicitado
             if (expressionText.innerText !== "") {
                 this.changeOperation(operation)
@@ -65,6 +65,17 @@ class Calculadora {
                 operationValue = previusNumber / currentNumber;
                 this.updateScreen(operationValue, operation, currentNumber, previusNumber);
                 break;
+            case "DEL":
+                this.processDel()
+                break;
+            case "CE":
+                this.processClearCurrentOperation()
+                break;
+            case "C":
+                this.processClearAll()
+                break;
+            case "=":
+                this.processEqual()
             default:
                 return;
         }
@@ -93,10 +104,28 @@ class Calculadora {
     changeOperation(operation) {
         const mathOperations = ["+", "-", "*", "/"]
         //  check se o valor solicitado é algum desses símbolos matematicos
-        if(!mathOperations.includes(operation)){
+        if (!mathOperations.includes(operation)) {
             return
         }
-        this.expressionText.innerText = this.expressionText.innerText.slice(0,-1) + operation; // se sim, irá remover o ultimo caractere da string (no caso a operação) e adicionar a nova operação solicitada.
+        this.expressionText.innerText = this.expressionText.innerText.slice(0, -1) + operation; // se sim, irá remover o ultimo caractere da string (no caso a operação) e adicionar a nova operação solicitada.
+    }
+
+    processDel() {
+        this.displayText.innerText = this.displayText.innerText.slice(0, -1)
+    }
+
+    processClearCurrentOperation() {
+        this.displayText.innerText = ""
+    }
+
+    processClearAll() {
+        this.displayText.innerText = "";
+        this.expressionText.innerText = "";
+    }
+
+    processEqual() {
+        let operation = this.expressionText.innerText.split(" ")[1]
+        this.processOperation(operation)
     }
 
 }

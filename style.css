@@ -12,11 +12,16 @@ body {
     align-items: center;
 }
 
+h3 {
+    font-weight: 700;
+}
+
 .display {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     overflow-wrap: break-word;
-    min-height: 2em;
+    min-height: 3em;
     padding: .2em;
     font-size: 2em;
     font-weight: 500;
@@ -26,12 +31,17 @@ body {
 
 }
 
+#display-text {
+    text-align: right;
+}
+
 #expression {
     color: lightgray;
     font-size: 0.6em;
 }
 
 .container {
+    border-radius: 5%;
     background-color: gray;
     width: 300px;
     padding: 0.8em;
