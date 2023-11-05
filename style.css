@@ -21,7 +21,7 @@ h3 {
     flex-direction: column;
     justify-content: space-between;
     overflow-wrap: break-word;
-    min-height: 3em;
+    min-height: 3.1em;
     padding: .2em;
     font-size: 2em;
     font-weight: 500;
@@ -69,4 +69,105 @@ h3 {
 .btn-secondary {
     background-color: #f3f2f5;
     color: black;
+}
+
+@media screen and (max-height: 390px) {
+    .container {
+        width: 500px;
+        height: 300px;
+    }
+
+    #buttons-container {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #equal-btn {
+        width: 30%;
+        order: 19
+    }
+
+
+
+    #ce {
+        order: 18;
+    }
+
+    #c {
+        order: 17
+    }
+
+    #del {
+        order: 16
+    }
+
+    #soma {
+        order: 15
+    }
+
+    #menos {
+        order: 14
+    }
+
+    #divisao {
+        order: 13
+    }
+
+    #multi {
+        order: 12;
+        align-self: stretch;
+    }
+
+    #ponto {
+        order: 11;
+    }
+
+    #zero {
+        order: 10
+    }
+
+
+    #um {
+        order: 9;
+    }
+
+    #dois {
+        order: 8;
+    }
+
+    #tres {
+        order: 7;
+    }
+
+    #quatro {
+        order: 6;
+    }
+
+    #cinco {
+        order: 5;
+    }
+
+    #seis {
+        order: 4;
+    }
+
+    #sete {
+        order: 3;
+    }
+
+    #oito {
+        order: 2;
+    }
+
+    #nove {
+        order: 1;
+    }
+
+    #expression {
+        color: lightgray;
+        font-size: 0.8em;
+    }
 }
