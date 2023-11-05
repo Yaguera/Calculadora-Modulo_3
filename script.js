@@ -30,28 +30,45 @@ class Calculadora {
         }
         this.digitPressed = digit
         this.updateScreen()
-        console.log(displayText.innerText)
-        console.log(this.digitPressed)
     }
 
 
 
     processOperation(operation) {
-        if (operation == "=" || operation == "DEL" || operation == "C" || operation == "CE") {
-            return
-        } else {
-            let newExpression = this.displayText.innerText + " " + operation + " "
-            this.displayText.innerText = ""
-            console.log(newExpression)
-            this.operation = newExpression
-            this.expressionText.innerText += this.operation;
+        let operationValue;
+        const previusNumber = +this.expressionText.innerText.split(" ")[0];
+        const currentNumber = +this.displayText.innerText;
+
+        switch (operation) {
+            case "+":
+                operationValue = previusNumber + currentNumber
+                this.updateScreen(operationValue, operation, currentNumber, previusNumber)
+                console.log("Previus: " + previusNumber)
+                console.log("Current: " + currentNumber)
+                break;
+            default:
+                return;
         }
+
     }
 
-    updateScreen() {
 
-        this.displayText.innerText += this.digitPressed;
-
+    updateScreen(
+        operationValue = null,
+        operation = null,
+        currentNumber = null,
+        previusNumber = null
+    ) {
+        console.log(operationValue, operation, currentNumber, previusNumber)
+        if (operationValue === null) {
+            this.displayText.innerText += this.digitPressed;
+        } else {
+            if (previusNumber === 0) {
+                operationValue = currentNumber
+            }
+            this.expressionText.innerText = `${operationValue} ${operation}`
+            this.displayText.innerText = ""
+        }
     }
 
 }
