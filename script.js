@@ -131,3 +131,12 @@ class Calculadora {
 }
 
 const calc = new Calculadora(displayText, expressionText)
+
+document.addEventListener("keydown", function (e) {
+    const key = e.key;
+    if (/\d/.test(key) || key === ".") {
+        calc.addDigit(key);
+    } else if (["+", "-", "*", "/", "="].includes(key)) {
+        calc.processOperation(key);
+    }
+});
