@@ -75,18 +75,24 @@ h3 {
     .container {
         width: 500px;
         height: 300px;
+        justify-content: center;
+        align-items: center;
     }
 
     #buttons-container {
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-wrap: wrap;
     }
 
+    #display-text {
+        width: 450px;
+    }
+
     #equal-btn {
-        width: 30%;
+        width: 20%;
         order: 19
     }
 
