@@ -35,6 +35,11 @@ class Calculadora {
 
 
     processOperation(operation) {
+        // antes de fazer a operação, verifica-se se o texto do display começa com um ponto e se ele possui algum numero além do ponto
+        if(displayText.innerText[0] === "." && !/\d/.test(displayText.innerText)){
+            alert('Digite um numero!')
+            return
+        }        
         //check se texto no display esta vazio e se a operação não é a "C"
         if (displayText.innerText === "" && operation !== "C") {
             // se sim, e o texto da expressão não estiver vazio, irá executar a troca de sinal caso seja solicitado
@@ -134,9 +139,11 @@ const calc = new Calculadora(displayText, expressionText)
 
 document.addEventListener("keydown", function (e) {
     const key = e.key;
-    if (/\d/.test(key) || key === ".") {
-        calc.addDigit(key);
-    } else if (["+", "-", "*", "/", "="].includes(key)) {
-        calc.processOperation(key);
+    if (!/^F[1-9]$/.test(key)){
+        if (/\d/.test(key) || key === ".") {
+            calc.addDigit(key);
+        } else if (["+", "-", "*", "/", "="].includes(key)) {
+            calc.processOperation(key);
+        }
     }
 });
